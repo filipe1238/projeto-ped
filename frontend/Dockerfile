@@ -20,7 +20,7 @@ RUN npm run build # vite build
 FROM nginx
 
 # print the current directory
-RUN pwd
+RUN ls
 
 # Copy the build output to replace the default Nginx contents.
 COPY dist /usr/share/nginx/html
