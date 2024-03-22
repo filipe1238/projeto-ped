@@ -25,8 +25,7 @@ export const PedidoCreate = (props) => {
 
                     <TextInput source="nome" multiline label="resources.pedido.fields.nome" />
                     <TextInput source="status" multiline label="resources.pedido.fields.status" />
-                    <DateInput source="data" label="resources.pedido.fields.data" />
-                    <TextInput source="status" multiline label="resources.pedido.fields.status" />
+                    <DateInput source="data" label="resources.pedido.fields.dataHora" />
                     <TextInput source="formaPagamento" label="resources.pedido.fields.formaPagamento" />
 
                 </TabbedForm.Tab>
