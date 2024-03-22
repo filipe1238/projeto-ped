@@ -23,10 +23,12 @@ FROM nginx
 RUN ls
 
 # Copy the build output to replace the default Nginx contents.
-COPY ./app/build /usr/share/nginx/html
+COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
+
+COPY --from=build /app/build/ /usr/share/nginx/html/
 
 # Expose port 80 for serving the application
 EXPOSE 80
 
 # Start the Nginx web server when the container starts
-CMD ["httpd-foreground"]
+CMD ["nginx", "-g", "daemon off;"]
