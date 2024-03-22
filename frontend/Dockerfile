@@ -22,7 +22,7 @@ FROM nginx
 # Copy the build output to replace the default Nginx contents.
 COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
 
-COPY /app/build/ /usr/share/nginx/html/
+COPY /app/dist/ /usr/share/nginx/html/
 
 # Expose port 80 for serving the application
 EXPOSE 80
