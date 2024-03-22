@@ -7,10 +7,10 @@ interface Props extends FieldProps<any> {
 }
 
 const grabImage = (record: any) => {
-    if (record.fotoUrl) {
-        return record.fotoUrl;
+    if (record.foto) {
+        return record.foto;
     } else {
-        return record?.artista?.fotoUrl;
+        return record?.produto?.foto;
     }
 }
 const AvatarField = ({ size = '25', sx }: Props) => {
