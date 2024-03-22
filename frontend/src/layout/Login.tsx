@@ -142,7 +142,7 @@ const Login = () => {
                                 fullWidth
                             />
                         </Box>
-                        register && <Box sx={{marginTop: '1em'}}>
+                        {register && <Box sx={{marginTop: '1em'}}>
                             <TextInput
                                 source="email"
                                 label={translate('resources.users.fields.email')}
@@ -154,7 +154,7 @@ const Login = () => {
                                 }}
                                 fullWidth
                             />
-                        </Box>
+                        </Box>}
 
                         <Box sx={{marginTop: '1em'}}>
                             <TextInput

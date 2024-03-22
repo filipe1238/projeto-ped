@@ -1,5 +1,12 @@
-# Build com Docker
-front-end e back-end
+# Host em Render
+Foi testado heroku, mas o free tier dele nao existe mamis.
+
+As vezes o host em render não funciona (ele reestarta novamente).
+
+https://projeto-ped.onrender.com
+
+# Build com Docker local
+front-end e back-end e atualizar portas
 ```sh
 cd .\frontend docker build -t client-pedidos .
 ```
