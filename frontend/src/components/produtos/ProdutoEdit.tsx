@@ -31,8 +31,8 @@ export const ProdutoEdit = () => {
                         sx={{maxWidth: '40em'}}>
                         <Poster urlString={"imagem"}/>
 
-                        <TextInput source="nome" multiline label="resources.produto.fields.nome" />
-                        <NumberInput source="preco" label="resources.produto.fields.preco" />
+                        <TextInput source="nome" multiline label="resources.produto.fields.nome" required />
+                        <NumberInput source="preco" label="resources.produto.fields.preco" required />
 
                     </TabbedForm.Tab>
                     <TabbedForm.Tab

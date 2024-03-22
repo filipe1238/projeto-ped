@@ -23,9 +23,9 @@ export const ProdutoCreate = (props) => {
                     sx={{maxWidth: '40em'}}>
                     <Poster urlString={"imagem"}/>
 
-                    <TextInput source="nome" multiline label="resources.produto.fields.nome" />
+                    <TextInput source="nome" multiline label="resources.produto.fields.nome" required />
 
-                    <NumberInput source="preco" label="resources.produto.fields.preco" />
+                    <NumberInput source="preco" label="resources.produto.fields.preco" required />
 
                 </TabbedForm.Tab>
                 <TabbedForm.Tab

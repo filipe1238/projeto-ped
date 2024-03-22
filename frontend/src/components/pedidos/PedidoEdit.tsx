@@ -38,9 +38,9 @@ export const PedidoEdit = () => {
                         sx={{maxWidth: '40em'}}>
                         <Poster urlString={"fotoUrl"}/>
 
-                        <TextInput source="nome" multiline label="resources.pedido.fields.nome" />
+                        <TextInput source="nome" multiline label="resources.pedido.fields.nome" required />
                         <TextInput source="status" multiline label="resources.pedido.fields.status" />
-                        <DateInput source="data" label="resources.pedido.fields.dataHora" />
+                        <DateInput source="data" label="resources.pedido.fields.dataHora" required />
                         <TextInput source="formaPagamento" label="resources.pedido.fields.formaPagamento" />
 
                     </TabbedForm.Tab>
