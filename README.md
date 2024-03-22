@@ -1,11 +1,19 @@
 # Host em Render
-Foi testado heroku, mas o free tier dele nao existe mamis.
+Foi testado heroku, mas o free tier dele nao existe mais.
 
-As vezes o host em render não funciona (ele reestarta novamente).
+As vezes o host em render não funciona (ele reestarta a aplicação depois de um tempo).
 
 Link: https://projeto-ped.onrender.com
 
 ![img.png](img.png)
+
+# Testes Unitarios
+Executar da classe pai, que é a classe de testes, ela irá executar todos os testes unitários.
+Trocar a base de dados para H2 para os testes unitários.
+
+![img_1.png](img_1.png)
+
+![img_2.png](img_2.png)
 
 # Build com Docker local
 front-end e back-end e atualizar portas
