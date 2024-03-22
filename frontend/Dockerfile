@@ -19,6 +19,9 @@ RUN npm run build # vite build
 # Use an official Nginx runtime as the base image
 FROM nginx
 
+# print the current directory
+RUN pwd
+
 # Copy the build output to replace the default Nginx contents.
 COPY dist /usr/share/nginx/html
 
