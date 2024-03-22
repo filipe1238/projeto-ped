@@ -7,6 +7,7 @@ import LockIcon from '@mui/icons-material/Lock';
 import {Form, HttpError, required, TextInput, useLogin, useNotify, useTranslate,} from 'react-admin';
 
 import Box from '@mui/material/Box';
+
 const isDev = import.meta.env.DEV;
 const API_URL = isDev ? import.meta.env.VITE_DEV_REST_URL : import.meta.env.VITE_PROD_REST_URL;
 
@@ -52,7 +53,7 @@ const Login = () => {
         const request = new Request(`${API_URL}/users`, {
             method: 'POST',
             body: JSON.stringify(registerValues),
-            headers: new Headers({ 'Content-Type': 'application/json' }),
+            headers: new Headers({'Content-Type': 'application/json'}),
         })
 
         return fetch(request)
@@ -70,10 +71,10 @@ const Login = () => {
             })
             .catch((error: Error) => {
                 notify(typeof error === 'string'
-                    ? error
-                    : typeof error === 'undefined' || !error.message
-                        ? 'ra.auth.sign_in_error'
-                        : error.message,
+                        ? error
+                        : typeof error === 'undefined' || !error.message
+                            ? 'ra.auth.sign_in_error'
+                            : error.message,
                     {
                         type: 'error',
                         messageArgs: {
@@ -141,7 +142,7 @@ const Login = () => {
                                 fullWidth
                             />
                         </Box>
-                        <Box sx={{marginTop: '1em'}} hidden={!register}>
+                        register && <Box sx={{marginTop: '1em'}}>
                             <TextInput
                                 source="email"
                                 label={translate('resources.users.fields.email')}
@@ -151,10 +152,10 @@ const Login = () => {
                                     // @ts-ignore
                                     setRegisterValues({...registerValues, email: e.target.value});
                                 }}
-                                validate={required()}
                                 fullWidth
                             />
                         </Box>
+
                         <Box sx={{marginTop: '1em'}}>
                             <TextInput
                                 source="password"
@@ -168,31 +169,40 @@ const Login = () => {
                                 fullWidth
                             />
                         </Box>
+
                         <Box sx={{marginTop: '1em'}} hidden={!register}>
                             <TextInput
                                 source="password"
                                 label={translate('resources.users.form.passwordConfirm')}
                                 type="password"
                                 disabled={loading}
-                                validate={required()}
                                 fullWidth
                             />
                         </Box>
 
                     </Box>
                     <CardActions sx={{padding: '0 1em 1em 1em'}}>
-                        {!register && <><Button
-                            variant="contained"
-                            type="submit"
-                            color="primary"
-                            disabled={loading}
-                            fullWidth
-                        >
-                            {loading && (
-                                <CircularProgress size={25} thickness={2}/>
-                            )}
-                            {translate('ra.auth.sign_in')}
-                        </Button>
+                        {!register && <>
+                            <Button
+                                variant="contained"
+                                type="submit"
+                                color="primary"
+                                disabled={loading}
+                                fullWidth
+                            >
+                                {loading && (
+                                    <CircularProgress size={25} thickness={2}/>
+                                )}
+                                {translate('ra.auth.sign_in')}
+                            </Button>
+                            <Button
+                                variant="contained"
+                                type="button"
+                                color="primary"
+                                disabled={loading}
+                                fullWidth>
+                                Entrar Temporary
+                            </Button>
                             <Button
                                 variant="contained"
                                 type="button"
