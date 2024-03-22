@@ -16,8 +16,6 @@ const PedidoProdutoEditForm = (props) => {
 
     if (!record) {
         return <>Nao é possivel criar por esse caminho</>;
-    } else {
-        console.log('record', record);
     }
 
     // eslint-disable-next-line react/prop-types

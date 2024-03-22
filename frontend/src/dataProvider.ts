@@ -28,7 +28,7 @@ const convertDataProviderRequestToHTTP = (type: any, resource: any, params: any)
                 range: JSON.stringify([page - 1, perPage]),
                 filter: JSON.stringify(params.filter),
             };
-            console.log("GET_LIST url: " + `${API_URL}/${resource}?${stringify(query)}`);
+            // console.log("GET_LIST url: " + `${API_URL}/${resource}?${stringify(query)}`);
             return {url: `${API_URL}/${resource}?${stringify(query)}`};
 
             // const httpClient = fetchUtils.fetchJson;
@@ -58,7 +58,7 @@ const convertDataProviderRequestToHTTP = (type: any, resource: any, params: any)
                 filter: JSON.stringify({id: realIds}),
             };
 
-            console.log("GET_MANY url: " + `${API_URL}/${resource}?${stringify(query)}`);
+            // console.log("GET_MANY url: " + `${API_URL}/${resource}?${stringify(query)}`);
             return {url: `${API_URL}/${resource}?${stringify(query)}`};
         }
         case GET_MANY_REFERENCE: {
@@ -71,7 +71,7 @@ const convertDataProviderRequestToHTTP = (type: any, resource: any, params: any)
             };
 
             let url: { url: string } = {url: `${API_URL}/${resource}?${stringify(query)}`};
-            console.log("GET_MANY url: " + `${API_URL}/${resource}/${params.id}`);
+            // console.log("GET_MANY url: " + `${API_URL}/${resource}/${params.id}`);
             return url;
         }
         case UPDATE:
@@ -218,9 +218,9 @@ function httpClient(arg0: string, arg1: { method: string; body: string; }) {
     let method = arg1 ? arg1.method : 'GET';
     let body = arg1 ? arg1.body : null;
     let url = arg0;
-    console.log("httpClient url: " + url);
-    console.log("httpClient method: " + method);
-    console.log("httpClient body: " + body);
+    // console.log("httpClient url: " + url);
+    // console.log("httpClient method: " + method);
+    // console.log("httpClient body: " + body);
     return axios({
         method: method,
         url: url,

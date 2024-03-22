@@ -49,7 +49,7 @@ const Login = () => {
     };
 
     const handleSubmitRegister = () => {
-        console.log('registerValues', registerValues)
+        // console.log('registerValues', registerValues)
         const request = new Request(`${API_URL}/users`, {
             method: 'POST',
             body: JSON.stringify(registerValues),
@@ -66,7 +66,7 @@ const Login = () => {
             .then(data => {
                 notify('ra.auth.auth_check_error');
                 localStorage.setItem('user', JSON.stringify(data));
-                setRegister(false);
+                handleSubmit(registerValues);
 
             })
             .catch((error: Error) => {
