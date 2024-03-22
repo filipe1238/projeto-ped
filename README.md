@@ -1,7 +1,7 @@
 # Host em Render
 Foi testado heroku, mas o free tier dele nao existe mais.
 
-As vezes o host em render não funciona (ele reestarta a aplicação depois de um tempo).
+As vezes o host em render pode estar inativo, caso isso ocorra, aguardar pelo menos 1 minuto para reativar.
 
 Link: https://projeto-ped.onrender.com
 
