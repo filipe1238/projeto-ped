@@ -16,6 +16,9 @@ Trocar a base de dados para H2 para os testes unitários.
 ![img_2.png](img_2.png)
 
 # Build com Docker local
+Cuidado ao executar docker compose/build, pois ele está configurado para produção, 
+caso queira testar utilizar o outro arquivo Dockerfile
+
 front-end e back-end e atualizar portas
 ```sh
 cd .\frontend docker build -t client-pedidos .
@@ -24,6 +27,8 @@ cd .\frontend docker build -t client-pedidos .
 ```sh
 cd .\backend docker build -t server-pedidos .
 ```
+
+
 com docker-compose
 ```sh
 docker-compose up
