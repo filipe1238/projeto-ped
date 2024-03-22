@@ -1,0 +1,17 @@
+version: '3'
+services:
+  server-pedidos:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: server-ped
+    ports:
+      - "8080:8080"
+
+  client-pedidos:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: client-ped
+    ports:
+      - "5173:5173"
