@@ -12,6 +12,7 @@ interface Props extends FieldProps<any> {
 const PhotoFieldComponent = (props: Props) => {
     const { size } = props;
     const record = useRecordContext<any>();
+    console.log('record', record);
     return record ? (
         <Typography
             variant="body2"

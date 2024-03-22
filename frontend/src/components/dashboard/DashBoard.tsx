@@ -25,7 +25,7 @@ const Dashboard = () => {
                                 <Card sx={{display: 'inline-block'}}>
                                     <CardMedia
                                         component="img"
-                                        image={produto.foto ? produto.foto : `https://picsum.photos/500/300?random=${produto.id}`}
+                                        image={produto.imagem ? produto.imagem : `https://picsum.photos/500/300?random=${produto.id}`}
                                         alt=""
                                         sx={{maxWidth: '10em', maxHeight: '10em'}}
                                     />
