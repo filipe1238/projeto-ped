@@ -19,13 +19,10 @@ RUN npm run build # vite build
 # Use an official Nginx runtime as the base image
 FROM nginx
 
-# print the current directory
-RUN ls
-
 # Copy the build output to replace the default Nginx contents.
 COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
 
-COPY --from=build /app/build/ /usr/share/nginx/html/
+COPY /app/build/ /usr/share/nginx/html/
 
 # Expose port 80 for serving the application
 EXPOSE 80
