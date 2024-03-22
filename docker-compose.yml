@@ -11,7 +11,7 @@ services:
   client-pedidos:
     build:
       context: ./frontend
-      dockerfile: frontend/5173
+      dockerfile: Dockerfile
     container_name: client-ped
     ports:
       - "5173:5173"
