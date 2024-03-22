@@ -8,7 +8,7 @@ ENV PATH /app/node_modules/.bin:$PATH
 
 # Copy package.json and package-lock.json to the container
 COPY package*.json ./
-RUN npm install --production
+RUN npm install
 
 # Copy the entire project directory to the container
 COPY . .
