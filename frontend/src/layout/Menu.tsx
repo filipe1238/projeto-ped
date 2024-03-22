@@ -6,7 +6,10 @@ import {
     MenuProps,
     useSidebarState,
 } from 'react-admin';
-import artistas from "../components/pedidos/index";
+import pedidos from "../components/pedidos/index";
+import users from "../components/users/index";
+import produtos from "../components/produtos/index";
+
 import SubMenu from './SubMenu';
 
 type MenuName = 'menuCatalog' | 'menuSales' | 'menuCustomers';
@@ -14,7 +17,6 @@ type MenuName = 'menuCatalog' | 'menuSales' | 'menuCustomers';
 const Menu = ({ dense = false }: MenuProps) => {
     const [state, setState] = useState({
         menuCadastros: true,
-        menuEventos: true,
     });
     const [open] = useSidebarState();
 
@@ -40,27 +42,27 @@ const Menu = ({ dense = false }: MenuProps) => {
                 handleToggle={() => handleToggle('menuCadastros')}
                 isOpen={state.menuCadastros}
                 name="pos.menu.cadastros"
-                icon={<artistas.icon />}
+                icon={<pedidos.icon />}
                 dense={dense}>
                 <MenuItemLink
                     to="/users"
                     state={{ _scrollToTop: true }}
                     primaryText={`pos.menu.users`}
-                    leftIcon={<artistas.icon />}
+                    leftIcon={<users.icon />}
                     dense={dense}
                 />
                 <MenuItemLink
                     to="/pedidos"
                     primaryText={`pos.menu.pedidos`}
                     state={{ _scrollToTop: true }}
-                    leftIcon={<artistas.icon />}
+                    leftIcon={<pedidos.icon />}
                     dense={dense}
                 />
                 <MenuItemLink
                     to="/produtos"
                     primaryText={`pos.menu.produtos`}
                     state={{ _scrollToTop: true }}
-                    leftIcon={<artistas.icon />}
+                    leftIcon={<produtos.icon />}
                     dense={dense}
                 />
             </SubMenu>

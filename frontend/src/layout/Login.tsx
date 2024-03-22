@@ -200,14 +200,6 @@ const Login = () => {
                                 type="button"
                                 color="primary"
                                 disabled={loading}
-                                fullWidth>
-                                Entrar Temporary
-                            </Button>
-                            <Button
-                                variant="contained"
-                                type="button"
-                                color="primary"
-                                disabled={loading}
                                 fullWidth
                                 onClick={() => {
                                     setRegister(true);

@@ -1,11 +1,11 @@
 import {PedidoList} from "./PedidoList";
 import {PedidoCreate} from "./PedidoCreate";
 import {PedidoEdit} from "./PedidoEdit";
-import VisitorIcon from '@mui/icons-material/People';
+import BookmarkAddedIcon from '@mui/icons-material/BookmarkAdded';
 
 export default {
     list: PedidoList,
     create: PedidoCreate,
     edit: PedidoEdit,
-    icon: VisitorIcon,
+    icon: BookmarkAddedIcon,
 };

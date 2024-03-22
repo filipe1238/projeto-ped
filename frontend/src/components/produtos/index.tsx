@@ -1,11 +1,11 @@
 import {ProdutoList} from "./ProdutoList";
 import {ProdutoCreate} from "./ProdutoCreate";
 import {ProdutoEdit} from "./ProdutoEdit";
-import VisitorIcon from '@mui/icons-material/People';
+import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 
 export default {
     list: ProdutoList,
     create: ProdutoCreate,
     edit: ProdutoEdit,
-    icon: VisitorIcon,
+    icon: ShoppingBagIcon,
 };
