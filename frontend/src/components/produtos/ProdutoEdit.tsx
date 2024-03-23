@@ -8,6 +8,7 @@ import {
 import Poster from "../fotonome/Poster";
 import React from "react";
 import CustomEditActions from "../editactions/EditActions";
+import {InputAdornment} from "@mui/material";
 
 const RichTextInput = React.lazy(() =>
     import('ra-input-rich-text').then(module => ({
@@ -16,14 +17,14 @@ const RichTextInput = React.lazy(() =>
 );
 
 
-const PedidoEditTitle = () => {
+const ProdutoEditTitle = () => {
     const record = useRecordContext();
-    return <span>{`${record.nome}`}</span>;
+    return <span>{`${record?.nome}`}</span>;
 };
 
 export const ProdutoEdit = () => {
     return (<>
-            <Edit title={<PedidoEditTitle/>} mutationMode="pessimistic" actions={<CustomEditActions/>}>
+            <Edit title={<ProdutoEditTitle/>} mutationMode="pessimistic" actions={<CustomEditActions/>}>
                 <TabbedForm>
 
                     <TabbedForm.Tab
@@ -31,8 +32,17 @@ export const ProdutoEdit = () => {
                         sx={{maxWidth: '40em'}}>
                         <Poster urlString={"imagem"}/>
 
-                        <TextInput source="nome" multiline label="resources.produto.fields.nome" required />
-                        <NumberInput source="preco" label="resources.produto.fields.preco" required />
+                        <TextInput source="nome" multiline label="resources.produto.fields.nome" required fullWidth/>
+                        <NumberInput
+                            source="preco"
+                            InputProps={{
+                                startAdornment: (
+                                    <InputAdornment position="start">R$</InputAdornment>
+                                ),
+                            }}
+                            required
+                            fullWidth
+                        />
 
                     </TabbedForm.Tab>
                     <TabbedForm.Tab

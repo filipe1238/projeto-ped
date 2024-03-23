@@ -1,11 +1,12 @@
 import {
-    AutocompleteInput, Create,
+    AutocompleteInput,
     Edit, NumberInput,
     SimpleForm,
     useGetList,
     useRecordContext
 } from "react-admin";
 import {useState, useEffect} from "react";
+import {useGetProdutosFromPedido} from "../../Hooks/useGetProdutosFromPedido";
 
 
 
@@ -24,10 +25,7 @@ const PedidoProdutoEditForm = (props) => {
     useEffect(() => {
         setPedido(record?.pedido);
     }, [record?.pedido, setPedido]);
-
-    if (isLoadingChoices || isLoadingChoicesArtista) {
-        return null;
-    }
+    
 
     return (
         <SimpleForm>

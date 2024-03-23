@@ -206,11 +206,11 @@ export default (type: any, resource: any, params: any): any => {
                 return convertHTTPResponseToDataProvider(response, type, resource, params);
             }
         )
-        // .catch(error => {
-        //     // Handle HTTP errors here
-        //     let response = error?.response ? error.response : error;
-        //     throw new Error('HTTP error: ' + response?.status + ' - ' + response?.data?.message);
-        // });
+        .catch(error => {
+            // Handle HTTP errors here
+            let response = error?.response ? error.response : error;
+            throw new Error('HTTP error: ' + response?.status + ' - ' + response?.data?.message);
+        });
 };
 
 function httpClient(arg0: string, arg1: { method: string; body: string; }) {

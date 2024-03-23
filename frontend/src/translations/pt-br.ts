@@ -95,6 +95,7 @@ const customPortugueseMessages: TranslationMessages = {
                 cliente: 'Cliente',
                 produtos: 'Produtos',
                 formaPagamento: 'Forma de Pagamento',
+                total: 'Total',
             },
             form: {
                 detalhes: 'Detalhes',

@@ -1,6 +1,8 @@
 package com.projetosintegrados.services;
 
 import com.projetosintegrados.entities.Pedido;
+import com.projetosintegrados.entities.Produto;
+import com.projetosintegrados.repositories.PedidoProdutoRepository;
 import com.projetosintegrados.repositories.PedidoRepository;
 import com.projetosintegrados.utils.*;
 import lombok.AllArgsConstructor;
@@ -9,6 +11,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 @AllArgsConstructor
@@ -17,6 +21,7 @@ public class PedidoService extends ParentService<Pedido> {
 
     @Autowired
     private PedidoRepository repository;
+
     @Autowired
     private FilterService<Pedido, Integer> filterService;
 
@@ -25,13 +30,6 @@ public class PedidoService extends ParentService<Pedido> {
         return repository;
     }
 
-
-    @Override
-    public void beforeDelete(Pedido entity) {
-//        if (!entity.getPedidoProdutoList().isEmpty()) {
-//            throw new ResponseStatusException(HttpStatus.CONFLICT, "Pedido possui produtos associados");
-//        }
-    }
 
     @Override
     public Iterable<Pedido> filterBy(String filterStr, String rangeStr, String sortStr) {

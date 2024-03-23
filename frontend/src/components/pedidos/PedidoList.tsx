@@ -4,7 +4,7 @@ import {
     DateField,
     List,
     TextField,
-    SearchInput
+    SearchInput, NumberField
 } from "react-admin";
 import PhotoFieldComponent from "../fotonome/PhotoFieldComponent";
 
@@ -66,7 +66,7 @@ const PedidoMobileList = () => {
                       }}>
                 {/*<TextField source="id"/>*/}
                 <PhotoFieldComponent source="nome"/>
-                <TextField source="nacionalidade"/>
+                <TextField source="status"/>
             </Datagrid>
         </>
     );

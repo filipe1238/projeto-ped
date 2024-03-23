@@ -92,6 +92,8 @@ const customEnglishMessages: TranslationMessages = {
                 status: 'Status',
                 observacoes: 'Observations',
                 usuario: 'User',
+                formaPagamento: 'Payment Method',
+                total: 'Total',
             },
             form: {
                 detalhes: 'Details',

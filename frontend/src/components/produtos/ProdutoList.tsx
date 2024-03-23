@@ -4,7 +4,8 @@ import {
     DateField,
     List,
     TextField,
-    SearchInput
+    SearchInput,
+    NumberField
 } from "react-admin";
 import PhotoFieldComponent from "../fotonome/PhotoFieldComponent";
 
@@ -38,7 +39,10 @@ export const ProdutoList = () => {
                           }}>
                     {/*<TextField source="id"/>*/}
                     <PhotoFieldComponent source="foto" label={"resources.produto.fields.nome"}/>
-                    <TextField source="preco" label={"resources.produto.fields.preco"}/>
+                    <NumberField source="preco"
+                                 label={"resources.produto.fields.preco"}
+                                 options={{style: 'currency', currency: 'BRL'}}/>
+
                     <DateField source="dataCriacao" showTime label={"resources.artista.fields.dataCriacao"}/>
                 </Datagrid>
             )}
@@ -65,7 +69,9 @@ const PedidoMobileList = () => {
                       }}>
                 {/*<TextField source="id"/>*/}
                 <PhotoFieldComponent source="nome"/>
-                <TextField source="nacionalidade"/>
+                <NumberField source="preco"
+                             label={"resources.produto.fields.preco"}
+                                options={{style: 'currency', currency: 'BRL'}}/>
             </Datagrid>
         </>
     );

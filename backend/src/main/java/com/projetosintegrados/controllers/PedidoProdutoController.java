@@ -1,7 +1,7 @@
 package com.projetosintegrados.controllers;
 
 import com.projetosintegrados.entities.PedidoProduto;
-import com.projetosintegrados.services.ArtistaEventoService;
+import com.projetosintegrados.services.PedidoProdutoService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,7 +15,7 @@ import org.springframework.web.server.ResponseStatusException;
 public class PedidoProdutoController {
 
     @Autowired
-    private ArtistaEventoService service;
+    private PedidoProdutoService service;
 
 
     @GetMapping("/{id}")
