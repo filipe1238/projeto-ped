@@ -24,6 +24,7 @@ public class Pedido extends ParentEntity {
     private PedidoStatusEnum status;
     private String formaPagamento;
     private String descricao;
+    private BigDecimal valorTotal;
 
 
     /**

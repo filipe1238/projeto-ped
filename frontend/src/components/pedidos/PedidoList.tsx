@@ -40,6 +40,8 @@ export const PedidoList = () => {
                     <TextField source="nome" label={"resources.pedido.fields.nome"}/>
                     <TextField source="status" label={"resources.pedido.fields.status"}/>
                     <DateField source="data" label={"resources.pedido.fields.dataHora"}/>
+                    <NumberField source="valorTotal" label={"resources.pedido.fields.valorTotal"}
+                                 options={{style: 'currency', currency: 'BRL'}}/>
                     <DateField source="dataCriacao" showTime label={"resources.artista.fields.dataCriacao"}/>
                 </Datagrid>
             )}

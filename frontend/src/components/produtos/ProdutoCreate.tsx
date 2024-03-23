@@ -4,6 +4,7 @@ import React from "react";
 import Poster from "../fotonome/Poster";
 import CustomEditActions from "../editactions/EditActions";
 import {ProdutoList} from "./ProdutoList";
+import {InputAdornment} from "@mui/material";
 
 const RichTextInput = React.lazy(() =>
     import('ra-input-rich-text').then(module => ({
@@ -25,7 +26,16 @@ export const ProdutoCreate = (props) => {
 
                     <TextInput source="nome" multiline label="resources.produto.fields.nome" required />
 
-                    <NumberInput source="preco" label="resources.produto.fields.preco" required />
+                    <NumberInput
+                        source="preco"
+                        InputProps={{
+                            startAdornment: (
+                                <InputAdornment position="start">R$</InputAdornment>
+                            ),
+                        }}
+                        required
+                        fullWidth
+                    />
 
                 </TabbedForm.Tab>
                 <TabbedForm.Tab

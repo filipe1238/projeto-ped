@@ -6,15 +6,17 @@ import {
     TabbedForm, TextField,
     TextInput,
     useRecordContext,
-    Labeled, useGetManyReference,
+    Labeled, useGetManyReference, NumberInput,
 } from "react-admin";
 import Poster from "../fotonome/Poster";
 import React, {useEffect, useState} from "react";
 import CustomEditActions from "../editactions/EditActions";
 import PhotoLinkComponent from "../produtos/PhotoLinkComponent";
 import AddRelatedProduto from "./AddRelatedProduto";
-import {Grid, Theme, useMediaQuery, Card, Stack} from "@mui/material";
+import {Grid, Theme, useMediaQuery, Card, Stack, InputAdornment} from "@mui/material";
 import {PedidoStatusEnum} from "../../enums/PedidoStatusEnum";
+import {useSaveContext} from "ra-core";
+
 
 const RichTextInput = React.lazy(() =>
     import('ra-input-rich-text').then(module => ({
@@ -30,7 +32,9 @@ const PedidoEditTitle = () => {
 
 const PedidoTotal = () => {
     const record = useRecordContext();
+    const { save, saving, mutationMode } = useSaveContext();
     const [total, setTotal] = useState(0);
+    const saveContext = useSaveContext();
 
     if (!record) {
         return null;
@@ -54,7 +58,9 @@ const PedidoTotal = () => {
                 calculatedTotal += produto.produto.preco * produto.quantidade;
             });
             setTotal(calculatedTotal);
-            console.log('total', total);
+            record.valorTotal = calculatedTotal;
+            // @ts-ignore
+            saveContext.save(record, { onSuccess: () => {}, onFailure: () => {} }, mutationMode);
         }
     }, [data, isLoading]);
 
@@ -63,13 +69,17 @@ const PedidoTotal = () => {
     }
 
     return (
-        <Card>
-            <Stack>
-                <Labeled label="resources.pedido.fields.total">
-                    <NumberField source="total" record={{ total: total }} options={{ style: 'currency', currency: 'BRL' }} />
-                </Labeled>
-            </Stack>
-        </Card>
+        <NumberInput
+            source="valorTotal"
+            disabled={true}
+            InputProps={{
+                startAdornment: (
+                    <InputAdornment position="start">R$</InputAdornment>
+                ),
+            }}
+            required
+            fullWidth
+        />
     );
 };
 
