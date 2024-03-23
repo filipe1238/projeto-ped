@@ -1,13 +1,12 @@
 import {
     Datagrid,
     DateInput, DeleteButton,
-    Edit, EditButton, number, NumberField, Pagination, ReferenceManyField, SaveButton,
+    Edit, EditButton, NumberField, Pagination, ReferenceManyField,
     SelectInput,
     TabbedForm, TextField,
     TextInput,
     useRecordContext,
-    Show,
-    Labeled,
+    Labeled, useGetManyReference,
 } from "react-admin";
 import Poster from "../fotonome/Poster";
 import React, {useEffect, useState} from "react";
@@ -16,7 +15,6 @@ import PhotoLinkComponent from "../produtos/PhotoLinkComponent";
 import AddRelatedProduto from "./AddRelatedProduto";
 import {Grid, Theme, useMediaQuery, Card, Stack} from "@mui/material";
 import {PedidoStatusEnum} from "../../enums/PedidoStatusEnum";
-import {useGetProdutosFromPedido} from "../../Hooks/useGetProdutosFromPedido";
 
 const RichTextInput = React.lazy(() =>
     import('ra-input-rich-text').then(module => ({
@@ -30,7 +28,7 @@ const PedidoEditTitle = () => {
     return <span>{`${record?.nome}`}</span>;
 };
 
-const PedidoTotal = (props) => {
+const PedidoTotal = () => {
     const record = useRecordContext();
     const [total, setTotal] = useState(0);
 
@@ -39,31 +37,42 @@ const PedidoTotal = (props) => {
     }
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
-    const produtos = useGetProdutosFromPedido(record?.id);
+    const { data, isLoading } = useGetManyReference(
+        'pedido-produto',
+        {
+            target: 'pedido',
+            id: record.id,
+            pagination: { page: 1, perPage: 10 }
+        }
+    );
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
     useEffect(() => {
-        if (produtos.length > 0) {
+        if (!isLoading && data.length > 0) {
             let calculatedTotal = 0;
-            produtos.forEach((produto) => {
+            data.forEach((produto) => {
                 calculatedTotal += produto.produto.preco * produto.quantidade;
             });
             setTotal(calculatedTotal);
-        } else {
-            setTotal(0);
+            console.log('total', total);
         }
-    }, [produtos]);
+    }, [data, isLoading]);
+
+    if (isLoading) {
+        return <p>Loading...</p>;
+    }
+
     return (
-            <Card>
-                <Stack>
-                    <Labeled label="resources.pedido.fields.total">
-                        <NumberField source="total" record={{total: total}}
-                                   options={{style: 'currency', currency: 'BRL'}}/>
-                    </Labeled>
-                </Stack>
-            </Card>
+        <Card>
+            <Stack>
+                <Labeled label="resources.pedido.fields.total">
+                    <NumberField source="total" record={{ total: total }} options={{ style: 'currency', currency: 'BRL' }} />
+                </Labeled>
+            </Stack>
+        </Card>
     );
 };
+
 
 export const PedidoEdit = () => {
     const isSmall = useMediaQuery<Theme>((theme) => theme.breakpoints.down("sm"));
