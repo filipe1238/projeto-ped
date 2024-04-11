@@ -7,6 +7,24 @@ on:
 
 jobs:
   # Heavily modified deploy job to fit render.com
+  build:
+    name: Build and Test
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up JDK
+      uses: actions/setup-java@v2
+      with:
+        java-version: '21' # or any other Java version you need
+
+    - name: Build with Maven
+      run: mvn -B clean package --file /backend/pom.xml
+
+    - name: Run Tests
+      run: mvn -B test --file /backend/pom.xml
+    
   deploy:
     name: Deploy
     # needs: [test] # Our tests must pass in order to run the deploy job
