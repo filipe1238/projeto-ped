@@ -18,6 +18,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: '21' # You can change this to your desired Java version
+          distribution: 'adopt'
 
       - name: Cache Maven packages
         uses: actions/cache@v2
