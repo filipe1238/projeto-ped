@@ -20,8 +20,8 @@ jobs:
           java-version: '21' # You can change this to your desired Java version
           distribution: 'adopt'
 
-      - name: Change to project directory
-        run: cd backend
+      - name: List directory contents
+        run: ls -la
 
       - name: Cache Maven packages
         uses: actions/cache@v2
