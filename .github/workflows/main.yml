@@ -31,7 +31,7 @@ jobs:
             ${{ runner.os }}-maven-
 
       - name: List directory contents
-        run: ls -la
+        run: cd backend && ls -la
 
       - name: Build and Test with Maven
         run: mvn clean test
