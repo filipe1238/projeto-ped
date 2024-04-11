@@ -1,4 +1,4 @@
-# Host em Render
+# Host em Render-
 Foi testado heroku, mas o free tier dele nao existe mais.
 
 As vezes o host em render pode estar inativo, caso isso ocorra, aguardar pelo menos 1 minuto para reativar.
