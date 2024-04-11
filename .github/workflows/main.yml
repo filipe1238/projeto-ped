@@ -6,7 +6,6 @@ on:
 
 
 jobs:
-  # Heavily modified deploy job to fit render.com
   build:
     name: Build and Test
     runs-on: ubuntu-latest
@@ -30,6 +29,9 @@ jobs:
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-maven-
+
+      - name: List directory contents
+        run: ls -la
 
       - name: Build and Test with Maven
         run: mvn clean test
