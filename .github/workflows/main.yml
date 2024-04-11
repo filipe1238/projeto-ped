@@ -19,9 +19,6 @@ jobs:
           java-version: '21' # You can change this to your desired Java version
           distribution: 'adopt'
 
-      - name: List directory contents
-        run: ls -la
-
       - name: Cache Maven packages
         uses: actions/cache@v2
         with:
@@ -30,11 +27,8 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-maven-
 
-      - name: List directory contents
-        run: cd backend && ls -la
-
       - name: Build and Test with Maven
-        run: mvn clean test
+        run: ls -la && mvn clean test
     
   deploy:
     name: Deploy
